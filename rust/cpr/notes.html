@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-01-21 Чт. 14:42 -->
+<!-- 2016-01-21 Чт. 14:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -215,15 +215,13 @@ Cтандартная библиотека пока не особо оптими
 <li><p>
 пример
 </p>
-<div class="org-src-container">
-
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #8996A8;">vec!</span><span style="color: #93a8c6;">[</span><span style="color: #99CC99;">0</span>, <span style="color: #99CC99;">1</span>, <span style="color: #99CC99;">2</span><span style="color: #93a8c6;">]</span>;
-    <span style="color: #96CBFE;">let</span> y = x;
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, x<span style="color: #b0b1a3;">[</span><span style="color: #99CC99;">0</span><span style="color: #b0b1a3;">]</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+<pre class="example">
+fn main() {
+    let x = vec![0, 1, 2];
+    let y = x;
+    println!("{}", x[0]);
+}
+</pre></li>
 </ul></li>
 <li>borrowing/references - временное владение данными
 <ul class="org-ul">
@@ -243,27 +241,25 @@ Cтандартная библиотека пока не особо оптими
 <li><p>
 пример
 </p>
-<div class="org-src-container">
+<pre class="example">
+#![allow(dead_code)]
 
-<pre class="src src-rust"><span style="color: #8996A8;">#!</span><span style="color: #8c8c8c;">[</span><span style="color: #8996A8;">allow</span><span style="color: #93a8c6;">(</span><span style="color: #8996A8;">dead_code</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">]</span>
+struct Child;
 
-<span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Child</span>;
+struct Parent&lt;'a&gt; {
+    child: &amp;'a Child,
+}
 
-<span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Parent</span><span style="color: #8c8c8c;">&lt;</span>'<span style="color: #c5c8c6; background-color: #1d1f21;">a</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #c5c8c6; background-color: #1d1f21;">child</span>: &amp;'<span style="color: #c5c8c6; background-color: #1d1f21;">a</span> <span style="color: #CFCB90;">Child</span>,
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    let x = 1;
+    {
+        let y = 2;
+    }
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #99CC99;">1</span>;
-    <span style="color: #93a8c6;">{</span>
-        <span style="color: #96CBFE;">let</span> y = <span style="color: #99CC99;">2</span>;
-    <span style="color: #93a8c6;">}</span>
-
-    <span style="color: #96CBFE;">let</span> c = <span style="color: #CFCB90;">Child</span>;
-    <span style="color: #96CBFE;">let</span> _p = <span style="color: #CFCB90;">Parent</span> <span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">child</span>: &amp;c <span style="color: #93a8c6;">}</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+    let c = Child;
+    let _p = Parent { child: &amp;c };
+}
+</pre></li>
 </ul></li>
 </ul>
 </div>
@@ -299,389 +295,351 @@ Cтандартная библиотека пока не особо оптими
 <li><p>
 hello, world
 </p>
-<div class="org-src-container">
-
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"Hello, world!"</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+<pre class="example">
+fn main() {
+    println!("Hello, world!");
+}
+</pre></li>
 <li><p>
 functions
 </p>
-<div class="org-src-container">
+<pre class="example">
+fn foo() {
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">foo</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-<span style="color: #8c8c8c;">}</span>
+fn bar(x: i32) -&gt; i32 {
+    x + 1
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">bar</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">)</span> -&gt; <span style="color: #CFCB90;">i32</span> <span style="color: #8c8c8c;">{</span>
-    x + <span style="color: #99CC99;">1</span>
-<span style="color: #8c8c8c;">}</span>
+fn one&lt;F: Fn(i32) -&gt; i32&gt;(x: i32, f: F) -&gt; i32 {
+    f(x) + 1
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">one</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #c5c8c6; background-color: #1d1f21;">F</span>: <span style="color: #CFCB90;">Fn</span><span style="color: #93a8c6;">(</span><span style="color: #CFCB90;">i32</span><span style="color: #93a8c6;">)</span> -&gt; <span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">&gt;(</span><span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span>, <span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: <span style="color: #CFCB90;">F</span><span style="color: #8c8c8c;">)</span> -&gt; <span style="color: #CFCB90;">i32</span> <span style="color: #8c8c8c;">{</span>
-    f<span style="color: #93a8c6;">(</span>x<span style="color: #93a8c6;">)</span> + <span style="color: #99CC99;">1</span>
-<span style="color: #8c8c8c;">}</span>
+fn two&lt;F&gt;(x: i32, f: F) -&gt; i32
+    where F : Fn(i32) -&gt; i32 {
+    f(x) + 1
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">two</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">F</span><span style="color: #8c8c8c;">&gt;(</span><span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span>, <span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: <span style="color: #CFCB90;">F</span><span style="color: #8c8c8c;">)</span> -&gt; <span style="color: #CFCB90;">i32</span>
-    <span style="color: #96CBFE;">where</span> <span style="color: #CFCB90;">F</span> : <span style="color: #CFCB90;">Fn</span><span style="color: #8c8c8c;">(</span><span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">)</span> -&gt; <span style="color: #CFCB90;">i32</span> <span style="color: #8c8c8c;">{</span>
-    f<span style="color: #93a8c6;">(</span>x<span style="color: #93a8c6;">)</span> + <span style="color: #99CC99;">1</span>
-<span style="color: #8c8c8c;">}</span>
+fn make_adder(i: i32) -&gt; Box&lt;Fn(i32) -&gt; i32&gt; {
+    // пока не доделают abstract return types,
+    // только через хип
+    Box::new(move |x| x + i)
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">make_adder</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">i</span>: <span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">)</span> -&gt; <span style="color: #CFCB90;">Box</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">Fn</span><span style="color: #93a8c6;">(</span><span style="color: #CFCB90;">i32</span><span style="color: #93a8c6;">)</span> -&gt; <span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&#1087;&#1086;&#1082;&#1072; &#1085;&#1077; &#1076;&#1086;&#1076;&#1077;&#1083;&#1072;&#1102;&#1090; abstract return types,</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1095;&#1077;&#1088;&#1077;&#1079; &#1093;&#1080;&#1087;</span>
-    <span style="color: #CFCB90;">Box</span>::new<span style="color: #93a8c6;">(</span><span style="color: #96CBFE;">move</span> |x| x + i<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    foo();
+    bar(10);
+    one(10, |x| x + 2);
+    two(10, |x| x + 2);
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    foo<span style="color: #93a8c6;">()</span>;
-    bar<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">10</span><span style="color: #93a8c6;">)</span>;
-    one<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">10</span>, |x| x + <span style="color: #99CC99;">2</span><span style="color: #93a8c6;">)</span>;
-    two<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">10</span>, |x| x + <span style="color: #99CC99;">2</span><span style="color: #93a8c6;">)</span>;
-
-    <span style="color: #96CBFE;">let</span> add_two = make_adder<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">2</span><span style="color: #93a8c6;">)</span>;
-    add_two<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">3</span><span style="color: #93a8c6;">)</span>; 
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+    let add_two = make_adder(2);
+    add_two(3); 
+}
+</pre></li>
 <li><p>
 mutability
 </p>
-<div class="org-src-container">
+<pre class="example">
+fn main() {
+    let x = 0;
+    x += 1;
+    // 3:5: 3:11 error: re-assignment of immutable variable `x` [E0384]
+    // 3     x += 1;
+    //       ^~~~~~
+    //
+    // 2:10 note: prior assignment occurs here
+    // 2     let x = 0;
+    //           ^
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #99CC99;">0</span>;
-    x += <span style="color: #99CC99;">1</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">3:5: 3:11 error: re-assignment of immutable variable `x` [E0384]</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">3     x += 1;</span>
-    <span style="color: #7C7C7C;">//       </span><span style="color: #7C7C7C;">^~~~~~</span>
-    <span style="color: #7C7C7C;">//</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">2:10 note: prior assignment occurs here</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">2     let x = 0;</span>
-    <span style="color: #7C7C7C;">//           </span><span style="color: #7C7C7C;">^</span>
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    println!("{}", x);
+}
 </pre>
-</div>
-<div class="org-src-container">
-
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> <span style="color: #96CBFE;">mut</span> x = <span style="color: #99CC99;">0</span>;
-    x += <span style="color: #99CC99;">1</span>;
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"got it: {}"</span>, x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+<pre class="example">
+fn main() {
+    let mut x = 0;
+    x += 1;
+    println!("got it: {}", x);
+}
+</pre></li>
 <li><p>
 structs
 </p>
-<div class="org-src-container">
+<pre class="example">
+struct Foo {
+    x: i32,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Foo</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span>,
-<span style="color: #8c8c8c;">}</span>
+struct Bar(i32, i32, i32);
 
-<span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Bar</span><span style="color: #8c8c8c;">(</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">)</span>;
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> a = <span style="color: #CFCB90;">Foo</span> <span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #99CC99;">123</span> <span style="color: #93a8c6;">}</span>;
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, a.x<span style="color: #93a8c6;">)</span>;
-    <span style="color: #96CBFE;">let</span> b = <span style="color: #CFCB90;">Bar</span><span style="color: #93a8c6;">(</span><span style="color: #99CC99;">0</span>, <span style="color: #99CC99;">1</span>, <span style="color: #99CC99;">2</span><span style="color: #93a8c6;">)</span>;
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}, {}, {}"</span>, b.<span style="color: #99CC99;">0</span>, b.<span style="color: #99CC99;">1</span>, b.<span style="color: #99CC99;">2</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+fn main() {
+    let a = Foo { x: 123 };
+    println!("{}", a.x);
+    let b = Bar(0, 1, 2);
+    println!("{}, {}, {}", b.0, b.1, b.2);
+}
+</pre></li>
 <li><p>
 ownership
 </p>
-<div class="org-src-container">
+<pre class="example">
+struct Foo {
+    x: i32,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Foo</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span>,
-<span style="color: #8c8c8c;">}</span>
+fn fun1(f: Foo) {
+    println!("fun1: {}", f.x);
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">fun1</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: <span style="color: #CFCB90;">Foo</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"fun1: {}"</span>, f.x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+fn fun2(f: Foo) {
+    println!("fun2: {}", f.x);
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">fun2</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: <span style="color: #CFCB90;">Foo</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"fun2: {}"</span>, f.x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> a = <span style="color: #CFCB90;">Foo</span> <span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #99CC99;">123</span> <span style="color: #93a8c6;">}</span>;
-    fun1<span style="color: #93a8c6;">(</span>a<span style="color: #93a8c6;">)</span>;
-    fun2<span style="color: #93a8c6;">(</span>a<span style="color: #93a8c6;">)</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">16:10: 16:11 error: use of moved value: `a` [E0382]</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">16     fun2(a);</span>
-    <span style="color: #7C7C7C;">//             </span><span style="color: #7C7C7C;">^</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">16:10: 16:11 help: run `rustc --explain E0382` to see a detailed explanation</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">15:10: 15:11 note: `a` moved here because it has type `Foo`, which is non-copyable</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">15     fun1(a);</span>
-    <span style="color: #7C7C7C;">//             </span><span style="color: #7C7C7C;">^</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    let a = Foo { x: 123 };
+    fun1(a);
+    fun2(a);
+    // 16:10: 16:11 error: use of moved value: `a` [E0382]
+    // 16     fun2(a);
+    //             ^
+    // 16:10: 16:11 help: run `rustc --explain E0382` to see a detailed explanation
+    // 15:10: 15:11 note: `a` moved here because it has type `Foo`, which is non-copyable
+    // 15     fun1(a);
+    //             ^
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+struct Foo {
+    x: i32,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Foo</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span>,
-<span style="color: #8c8c8c;">}</span>
+fn fun1(f: &amp;Foo) {
+    println!("fun1: {}", f.x);
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">fun1</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: &amp;<span style="color: #CFCB90;">Foo</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"fun1: {}"</span>, f.x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+fn fun2(f: &amp;Foo) {
+    println!("fun2: {}", f.x);
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">fun2</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: &amp;<span style="color: #CFCB90;">Foo</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"fun2: {}"</span>, f.x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> a = <span style="color: #CFCB90;">Foo</span> <span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #99CC99;">123</span> <span style="color: #93a8c6;">}</span>;
-    fun1<span style="color: #93a8c6;">(</span>&amp;a<span style="color: #93a8c6;">)</span>;
-    fun2<span style="color: #93a8c6;">(</span>&amp;a<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    let a = Foo { x: 123 };
+    fun1(&amp;a);
+    fun2(&amp;a);
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+struct Foo {
+    x: i32,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">struct</span> <span style="color: #CFCB90;">Foo</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #CFCB90;">i32</span>,
-<span style="color: #8c8c8c;">}</span>
+fn inc(f: &amp;mut Foo) {
+    f.x += 1;
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">inc</span><span style="color: #8c8c8c;">(</span><span style="color: #c5c8c6; background-color: #1d1f21;">f</span>: &amp;<span style="color: #96CBFE;">mut</span> <span style="color: #CFCB90;">Foo</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    f.x += <span style="color: #99CC99;">1</span>;
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> <span style="color: #96CBFE;">mut</span> a = <span style="color: #CFCB90;">Foo</span> <span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">x</span>: <span style="color: #99CC99;">123</span> <span style="color: #93a8c6;">}</span>;
-    <span style="color: #96CBFE;">let</span> b = &amp;<span style="color: #96CBFE;">mut</span> a;
-    inc<span style="color: #93a8c6;">(</span>&amp;<span style="color: #96CBFE;">mut</span> a<span style="color: #93a8c6;">)</span>;
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, b.x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+fn main() {
+    let mut a = Foo { x: 123 };
+    let b = &amp;mut a;
+    inc(&amp;mut a);
+    println!("{}", b.x);
+}
+</pre></li>
 <li><p>
 match
 </p>
-<div class="org-src-container">
-
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #99CC99;">100</span>;
-    <span style="color: #96CBFE;">match</span> x <span style="color: #93a8c6;">{</span>
-        <span style="color: #99CC99;">0</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"nope"</span><span style="color: #b0b1a3;">)</span>,
-        <span style="color: #99CC99;">90</span>...<span style="color: #99CC99;">100</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"yep"</span><span style="color: #b0b1a3;">)</span>,
-        _ =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"nope"</span><span style="color: #b0b1a3;">)</span>,
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+<pre class="example">
+fn main() {
+    let x = 100;
+    match x {
+        0 =&gt; println!("nope"),
+        90...100 =&gt; println!("yep"),
+        _ =&gt; println!("nope"),
+    }
+}
+</pre></li>
 <li><p>
 enums
 </p>
-<div class="org-src-container">
+<pre class="example">
+enum Foo {
+    Apple,
+    Orange{ size: u32 },
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">enum</span> <span style="color: #CFCB90;">Foo</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Apple</span>,
-    <span style="color: #CFCB90;">Orange</span><span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">size</span>: <span style="color: #CFCB90;">u32</span> <span style="color: #93a8c6;">}</span>,
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #CFCB90;">Foo</span>::<span style="color: #CFCB90;">Orange</span> <span style="color: #93a8c6;">{</span> <span style="color: #c5c8c6; background-color: #1d1f21;">size</span>: <span style="color: #99CC99;">100</span> <span style="color: #93a8c6;">}</span>;
-    <span style="color: #96CBFE;">match</span> x <span style="color: #93a8c6;">{</span>
-        <span style="color: #CFCB90;">Foo</span>::<span style="color: #CFCB90;">Apple</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"Boo! Android is better!"</span><span style="color: #b0b1a3;">)</span>,
-        <span style="color: #CFCB90;">Foo</span>::<span style="color: #CFCB90;">Orange</span><span style="color: #b0b1a3;">{</span> size <span style="color: #b0b1a3;">}</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"An orange of size {}"</span>, size<span style="color: #b0b1a3;">)</span>,
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
-<span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&#1082;&#1086;&#1084;&#1087;&#1080;&#1083;&#1103;&#1090;&#1086;&#1088; &#1087;&#1086;&#1085;&#1080;&#1084;&#1072;&#1077;&#1090;, &#1095;&#1090;&#1086; Apple &#1085;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103;</span>
-</pre>
-</div></li>
+fn main() {
+    let x = Foo::Orange { size: 100 };
+    match x {
+        Foo::Apple =&gt; println!("Boo! Android is better!"),
+        Foo::Orange{ size } =&gt; println!("An orange of size {}", size),
+    }
+}
+// компилятор понимает, что Apple не используется
+</pre></li>
 <li><p>
 errors
 </p>
-<div class="org-src-container">
+<pre class="example">
+fn get_something() -&gt; Option&lt;i32&gt; {
+    Some(123)
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">get_something</span><span style="color: #8c8c8c;">()</span> -&gt; <span style="color: #CFCB90;">Option</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">i32</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Some</span><span style="color: #93a8c6;">(</span><span style="color: #99CC99;">123</span><span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    let x = match get_something() {
+        Some(x) =&gt; x + 100,
+        None =&gt; panic!("OMG!"),
+    };
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #96CBFE;">match</span> get_something<span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #CFCB90;">Some</span><span style="color: #b0b1a3;">(</span>x<span style="color: #b0b1a3;">)</span> =&gt; x + <span style="color: #99CC99;">100</span>,
-        <span style="color: #CFCB90;">None</span> =&gt; <span style="color: #8996A8;">panic!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"OMG!"</span><span style="color: #b0b1a3;">)</span>,
-    <span style="color: #93a8c6;">}</span>;
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"got {}"</span>, x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    println!("got {}", x);
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+enum MyError {
+    EveryoneDied,
+    AllIsLost,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">enum</span> <span style="color: #CFCB90;">MyError</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">EveryoneDied</span>,
-    <span style="color: #CFCB90;">AllIsLost</span>,
-<span style="color: #8c8c8c;">}</span>
+fn perform_something() -&gt; Result&lt;i32, MyError&gt; {
+    Ok(123)
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">perform_something</span><span style="color: #8c8c8c;">()</span> -&gt; <span style="color: #CFCB90;">Result</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">MyError</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Ok</span><span style="color: #93a8c6;">(</span><span style="color: #99CC99;">123</span><span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    let x = match perform_something() {
+        Ok(x) =&gt; x * 123,
+        Err(_) =&gt; panic!("OMG!"),
+    };
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #96CBFE;">match</span> perform_something<span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #CFCB90;">Ok</span><span style="color: #b0b1a3;">(</span>x<span style="color: #b0b1a3;">)</span> =&gt; x * <span style="color: #99CC99;">123</span>,
-        <span style="color: #CFCB90;">Err</span><span style="color: #b0b1a3;">(</span>_<span style="color: #b0b1a3;">)</span> =&gt; <span style="color: #8996A8;">panic!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"OMG!"</span><span style="color: #b0b1a3;">)</span>,
-    <span style="color: #93a8c6;">}</span>;
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"got {}"</span>, x<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    println!("got {}", x);
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+enum MyError {
+    EveryoneDied,
+    AllIsLost,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">enum</span> <span style="color: #CFCB90;">MyError</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">EveryoneDied</span>,
-    <span style="color: #CFCB90;">AllIsLost</span>,
-<span style="color: #8c8c8c;">}</span>
+fn perform_something() -&gt; Result&lt;i32, MyError&gt; {
+    Ok(123)
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">perform_something</span><span style="color: #8c8c8c;">()</span> -&gt; <span style="color: #CFCB90;">Result</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">MyError</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Ok</span><span style="color: #93a8c6;">(</span><span style="color: #99CC99;">123</span><span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">if</span> <span style="color: #96CBFE;">let</span> <span style="color: #CFCB90;">Ok</span><span style="color: #93a8c6;">(</span>x<span style="color: #93a8c6;">)</span> = perform_something<span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"got {}"</span>, x<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span> <span style="color: #96CBFE;">else</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"omg!"</span><span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    if let Ok(x) = perform_something() {
+        println!("got {}", x);
+    } else {
+        println!("omg!");
+    }
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+enum MyError {
+    EveryoneDied,
+    AllIsLost,
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">enum</span> <span style="color: #CFCB90;">MyError</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">EveryoneDied</span>,
-    <span style="color: #CFCB90;">AllIsLost</span>,
-<span style="color: #8c8c8c;">}</span>
+fn perform_something() -&gt; Result&lt;i32, MyError&gt; {
+    Ok(123)
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">perform_something</span><span style="color: #8c8c8c;">()</span> -&gt; <span style="color: #CFCB90;">Result</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">MyError</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Ok</span><span style="color: #93a8c6;">(</span><span style="color: #99CC99;">123</span><span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
+fn foo() -&gt; Result&lt;i32, MyError&gt; {
+    let x = try!(perform_something());
+    let y = try!(perform_something());
+    Ok(x + y)
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">foo</span><span style="color: #8c8c8c;">()</span> -&gt; <span style="color: #CFCB90;">Result</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">MyError</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #8996A8;">try!</span><span style="color: #93a8c6;">(</span>perform_something<span style="color: #b0b1a3;">()</span><span style="color: #93a8c6;">)</span>;
-    <span style="color: #96CBFE;">let</span> y = <span style="color: #8996A8;">try!</span><span style="color: #93a8c6;">(</span>perform_something<span style="color: #b0b1a3;">()</span><span style="color: #93a8c6;">)</span>;
-    <span style="color: #CFCB90;">Ok</span><span style="color: #93a8c6;">(</span>x + y<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">match</span> foo<span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #CFCB90;">Ok</span><span style="color: #b0b1a3;">(</span>x<span style="color: #b0b1a3;">)</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"{}"</span>, x<span style="color: #b0b1a3;">)</span>,
-        <span style="color: #CFCB90;">Err</span><span style="color: #b0b1a3;">(</span>_<span style="color: #b0b1a3;">)</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"OMG"</span><span style="color: #b0b1a3;">)</span>,
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    match foo() {
+        Ok(x) =&gt; println!("{}", x),
+        Err(_) =&gt; println!("OMG"),
+    }
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+#[derive(Debug)]
+enum MyError {
+}
 
-<pre class="src src-rust"><span style="color: #8996A8;">#</span><span style="color: #8c8c8c;">[</span><span style="color: #8996A8;">derive</span><span style="color: #93a8c6;">(</span><span style="color: #8996A8;">Debug</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">]</span>
-<span style="color: #96CBFE;">enum</span> <span style="color: #CFCB90;">MyError</span> <span style="color: #8c8c8c;">{</span>
-<span style="color: #8c8c8c;">}</span>
+fn perform_something() -&gt; Result&lt;i32, MyError&gt; {
+    Ok(123)
+}
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">perform_something</span><span style="color: #8c8c8c;">()</span> -&gt; <span style="color: #CFCB90;">Result</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">MyError</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Ok</span><span style="color: #93a8c6;">(</span><span style="color: #99CC99;">123</span><span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
+fn main() {
+    let x = perform_something().unwrap();
+    // Ok(x) или panic!
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = perform_something<span style="color: #93a8c6;">()</span>.unwrap<span style="color: #93a8c6;">()</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">Ok(x) &#1080;&#1083;&#1080; panic!</span>
+    let y = perform_something().expect("OMG!");
+    // Ok(x) или panic! с сообщением
 
-    <span style="color: #96CBFE;">let</span> y = perform_something<span style="color: #93a8c6;">()</span>.expect<span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"OMG!"</span><span style="color: #93a8c6;">)</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">Ok(x) &#1080;&#1083;&#1080; panic! &#1089; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077;&#1084;</span>
+    let z = perform_something()
+        .or_else(|_| -&gt; Result&lt;i32, MyError&gt; { Ok(777) })
+        .unwrap();
+    // Ok(x) или Ok(777) или panic!
 
-    <span style="color: #96CBFE;">let</span> z = perform_something<span style="color: #93a8c6;">()</span>
-        .or_else<span style="color: #93a8c6;">(</span>|_| -&gt; <span style="color: #CFCB90;">Result</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #CFCB90;">i32</span>, <span style="color: #CFCB90;">MyError</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #b0b1a3;">{</span> <span style="color: #CFCB90;">Ok</span><span style="color: #97b098;">(</span><span style="color: #99CC99;">777</span><span style="color: #97b098;">)</span> <span style="color: #b0b1a3;">}</span><span style="color: #93a8c6;">)</span>
-        .unwrap<span style="color: #93a8c6;">()</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">Ok(x) &#1080;&#1083;&#1080; Ok(777) &#1080;&#1083;&#1080; panic!</span>
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}, {}, {}"</span>, x, y, z<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+    println!("{}, {}, {}", x, y, z);
+}
+</pre></li>
 <li><p>
 traits
 </p>
-<div class="org-src-container">
+<pre class="example">
+trait DoesSomething {
+    fn do_something(&amp;self);
+}
 
-<pre class="src src-rust"><span style="color: #96CBFE;">trait</span> <span style="color: #CFCB90;">DoesSomething</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">do_something</span><span style="color: #93a8c6;">(</span>&amp;<span style="color: #96CBFE;">self</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+enum Fruit {
+    Apple,
+    Orange,
+}
 
-<span style="color: #96CBFE;">enum</span> <span style="color: #CFCB90;">Fruit</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #CFCB90;">Apple</span>,
-    <span style="color: #CFCB90;">Orange</span>,
-<span style="color: #8c8c8c;">}</span>
+impl DoesSomething for Fruit {
+    fn do_something(&amp;self) {
+        match *self {
+            Fruit::Apple =&gt; println!("11111"),
+            Fruit::Orange =&gt; println!("22222"),
+        }
+    }
+}
 
-<span style="color: #96CBFE;">impl</span> <span style="color: #CFCB90;">DoesSomething</span> <span style="color: #96CBFE;">for</span> <span style="color: #CFCB90;">Fruit</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">do_something</span><span style="color: #93a8c6;">(</span>&amp;<span style="color: #96CBFE;">self</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #96CBFE;">match</span> *<span style="color: #96CBFE;">self</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #CFCB90;">Fruit</span>::<span style="color: #CFCB90;">Apple</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #97b098;">(</span><span style="color: #8AE234;">"11111"</span><span style="color: #97b098;">)</span>,
-            <span style="color: #CFCB90;">Fruit</span>::<span style="color: #CFCB90;">Orange</span> =&gt; <span style="color: #8996A8;">println!</span><span style="color: #97b098;">(</span><span style="color: #8AE234;">"22222"</span><span style="color: #97b098;">)</span>,
-        <span style="color: #b0b1a3;">}</span>
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> x = <span style="color: #CFCB90;">Fruit</span>::<span style="color: #CFCB90;">Apple</span>;
-    x.do_something<span style="color: #93a8c6;">()</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+fn main() {
+    let x = Fruit::Apple;
+    x.do_something();
+}
+</pre></li>
 <li><p>
 iterators
 </p>
-<div class="org-src-container">
+<pre class="example">
+fn main() {
+    let n = (0..10)
+        .map(|x| x + 100)
+        // map делает move в данном случае
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> n = <span style="color: #93a8c6;">(</span><span style="color: #99CC99;">0</span>..<span style="color: #99CC99;">10</span><span style="color: #93a8c6;">)</span>
-        .map<span style="color: #93a8c6;">(</span>|x| x + <span style="color: #99CC99;">100</span><span style="color: #93a8c6;">)</span>
-        <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">map &#1076;&#1077;&#1083;&#1072;&#1077;&#1090; move &#1074; &#1076;&#1072;&#1085;&#1085;&#1086;&#1084; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077;</span>
+        .filter(|&amp;x| x % 2 == 0)
+        // filter принимает ref
 
-        .filter<span style="color: #93a8c6;">(</span>|&amp;x| x % <span style="color: #99CC99;">2</span> == <span style="color: #99CC99;">0</span><span style="color: #93a8c6;">)</span>
-        <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">filter &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1077;&#1090; ref</span>
-
-        .fold<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">0</span>, |sum, x| sum + x<span style="color: #93a8c6;">)</span>
-        <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">fold &#1076;&#1077;&#1083;&#1072;&#1077;&#1090; move</span>
+        .fold(0, |sum, x| sum + x)
+        // fold делает move
         ;
 
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, n<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    println!("{}", n);
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+fn main() {
+    let n = (0..10)
+        .cycle()
+        .take(1000)
+        .fold(0, |sum, x| sum + x);
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> n = <span style="color: #93a8c6;">(</span><span style="color: #99CC99;">0</span>..<span style="color: #99CC99;">10</span><span style="color: #93a8c6;">)</span>
-        .cycle<span style="color: #93a8c6;">()</span>
-        .take<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">1000</span><span style="color: #93a8c6;">)</span>
-        .fold<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">0</span>, |sum, x| sum + x<span style="color: #93a8c6;">)</span>;
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, n<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    println!("{}", n);
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+fn main() {
+    let n: Vec&lt;_&gt; = (0..10)
+        .cycle()
+        .take(1000)
+        .collect();
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> <span style="color: #c5c8c6; background-color: #1d1f21;">n</span>: <span style="color: #CFCB90;">Vec</span><span style="color: #93a8c6;">&lt;</span>_<span style="color: #93a8c6;">&gt;</span> = <span style="color: #93a8c6;">(</span><span style="color: #99CC99;">0</span>..<span style="color: #99CC99;">10</span><span style="color: #93a8c6;">)</span>
-        .cycle<span style="color: #93a8c6;">()</span>
-        .take<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">1000</span><span style="color: #93a8c6;">)</span>
-        .collect<span style="color: #93a8c6;">()</span>;
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, n.len<span style="color: #b0b1a3;">()</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    println!("{}", n.len());
+}
 </pre>
-</div>
 <ul class="org-ul">
 <li><p>
 в ASM для iter4.rs можно увидеть, как LLVM
@@ -722,120 +680,110 @@ pmuludq %xmm6, %xmm3
 <li><p>
 strings
 </p>
-<div class="org-src-container">
+<pre class="example">
+fn main() {
+    let a = "Hello, world";
+    // &amp;'static str
+    // str - статически аллоцированная строка неизвестной длины
+    // иммутабельна (без unsafe)
+    // имеет смысл в только виде &amp;str - slice (pointer + length)
 
-<pre class="src src-rust"><span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> a = <span style="color: #8AE234;">"Hello, world"</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&amp;'static str</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">str - &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080; &#1072;&#1083;&#1083;&#1086;&#1094;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1072;&#1103; &#1089;&#1090;&#1088;&#1086;&#1082;&#1072; &#1085;&#1077;&#1080;&#1079;&#1074;&#1077;&#1089;&#1090;&#1085;&#1086;&#1081; &#1076;&#1083;&#1080;&#1085;&#1099;</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&#1080;&#1084;&#1084;&#1091;&#1090;&#1072;&#1073;&#1077;&#1083;&#1100;&#1085;&#1072; (&#1073;&#1077;&#1079; unsafe)</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&#1080;&#1084;&#1077;&#1077;&#1090; &#1089;&#1084;&#1099;&#1089;&#1083; &#1074; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1074;&#1080;&#1076;&#1077; &amp;str - slice (pointer + length)</span>
+    let mut b = String::from(a);
+    // строка выделенная на куче, может меняться
 
-    <span style="color: #96CBFE;">let</span> <span style="color: #96CBFE;">mut</span> b = <span style="color: #CFCB90;">String</span>::from<span style="color: #93a8c6;">(</span>a<span style="color: #93a8c6;">)</span>;
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">&#1089;&#1090;&#1088;&#1086;&#1082;&#1072; &#1074;&#1099;&#1076;&#1077;&#1083;&#1077;&#1085;&#1085;&#1072;&#1103; &#1085;&#1072; &#1082;&#1091;&#1095;&#1077;, &#1084;&#1086;&#1078;&#1077;&#1090; &#1084;&#1077;&#1085;&#1103;&#1090;&#1100;&#1089;&#1103;</span>
+    b = b + "!";
 
-    b = b + <span style="color: #8AE234;">"!"</span>;
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{}"</span>, b<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+    println!("{}", b);
+}
+</pre></li>
 <li><p>
 macros
 </p>
-<div class="org-src-container">
+<pre class="example">
+macro_rules! foo {
+    (weather is $e:expr) =&gt; (println!("Weather is known to be {}", stringify!($e)))
+}
 
-<pre class="src src-rust"><span style="color: #8996A8;">macro_rules!</span> foo <span style="color: #8c8c8c;">{</span>
-    <span style="color: #93a8c6;">(</span>weather is <span style="color: #c5c8c6; background-color: #1d1f21;">$e</span>:expr<span style="color: #93a8c6;">)</span> =&gt; <span style="color: #93a8c6;">(</span><span style="color: #8996A8;">println!</span><span style="color: #b0b1a3;">(</span><span style="color: #8AE234;">"Weather is known to be {}"</span>, <span style="color: #8996A8;">stringify!</span><span style="color: #97b098;">(</span>$e<span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">}</span>
-
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #8996A8;">foo!</span><span style="color: #93a8c6;">(</span>weather is fine<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+fn main() {
+    foo!(weather is fine);
+}
+</pre></li>
 <li><p>
 threads
 </p>
-<div class="org-src-container">
+<pre class="example">
+use std::thread;
 
-<pre class="src src-rust"><span style="color: #96CBFE;">use</span> <span style="color: #CFCB90;">std</span>::thread;
+fn main() {
+    let mut data = vec![0, 1, 2];
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> <span style="color: #96CBFE;">mut</span> data = <span style="color: #8996A8;">vec!</span><span style="color: #93a8c6;">[</span><span style="color: #99CC99;">0</span>, <span style="color: #99CC99;">1</span>, <span style="color: #99CC99;">2</span><span style="color: #93a8c6;">]</span>;
+    for i in 0..3 {
+        thread::spawn(move || {
+            data[i] += 1;
+        });
+    }
 
-    <span style="color: #96CBFE;">for</span> i <span style="color: #96CBFE;">in</span> <span style="color: #99CC99;">0</span>..<span style="color: #99CC99;">3</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #CFCB90;">thread</span>::spawn<span style="color: #b0b1a3;">(</span><span style="color: #96CBFE;">move</span> || <span style="color: #97b098;">{</span>
-            data<span style="color: #aebed8;">[</span>i<span style="color: #aebed8;">]</span> += <span style="color: #99CC99;">1</span>;
-        <span style="color: #97b098;">}</span><span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
-
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">8:13: 8:17 error: capture of moved value: `data` [E0382]</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">8             data[i] += 1;</span>
-    <span style="color: #7C7C7C;">//               </span><span style="color: #7C7C7C;">^~~~</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">7:23: 9:10 note: `data` moved into closure environment here because it has type `collections::vec::Vec&lt;i32&gt;`, which is non-copyable</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">7         thread::spawn(move || {</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">8             data[i] += 1;</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">9         });</span>
-    <span style="color: #7C7C7C;">// </span><span style="color: #7C7C7C;">7:23: 9:10 help: perhaps you meant to use `clone()`?</span>
+    // 8:13: 8:17 error: capture of moved value: `data` [E0382]
+    // 8             data[i] += 1;
+    //               ^~~~
+    // 7:23: 9:10 note: `data` moved into closure environment here because it has type `collections::vec::Vec&lt;i32&gt;`, which is non-copyable
+    // 7         thread::spawn(move || {
+    // 8             data[i] += 1;
+    // 9         });
+    // 7:23: 9:10 help: perhaps you meant to use `clone()`?
 
 
-    <span style="color: #CFCB90;">thread</span>::sleep_ms<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">1000</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+    thread::sleep_ms(1000);
+}
 </pre>
-</div>
-<div class="org-src-container">
+<pre class="example">
+use std::thread;
+use std::sync::{Arc, Mutex};
 
-<pre class="src src-rust"><span style="color: #96CBFE;">use</span> <span style="color: #CFCB90;">std</span>::thread;
-<span style="color: #96CBFE;">use</span> <span style="color: #CFCB90;">std</span>::<span style="color: #CFCB90;">sync</span>::<span style="color: #8c8c8c;">{</span><span style="color: #CFCB90;">Arc</span>, <span style="color: #CFCB90;">Mutex</span><span style="color: #8c8c8c;">}</span>;
+fn main() {
+    let data = Arc::new(Mutex::new(vec![0, 1, 2]));
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> data = <span style="color: #CFCB90;">Arc</span>::new<span style="color: #93a8c6;">(</span><span style="color: #CFCB90;">Mutex</span>::new<span style="color: #b0b1a3;">(</span><span style="color: #8996A8;">vec!</span><span style="color: #97b098;">[</span><span style="color: #99CC99;">0</span>, <span style="color: #99CC99;">1</span>, <span style="color: #99CC99;">2</span><span style="color: #97b098;">]</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>;
+    for i in 0..3 {
+        let y = data.clone();
+        thread::spawn(move || {
+            let mut data = y.lock().unwrap();
+            data[i] += 1;
+        });
+    }
 
-    <span style="color: #96CBFE;">for</span> i <span style="color: #96CBFE;">in</span> <span style="color: #99CC99;">0</span>..<span style="color: #99CC99;">3</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #96CBFE;">let</span> y = data.clone<span style="color: #b0b1a3;">()</span>;
-        <span style="color: #CFCB90;">thread</span>::spawn<span style="color: #b0b1a3;">(</span><span style="color: #96CBFE;">move</span> || <span style="color: #97b098;">{</span>
-            <span style="color: #96CBFE;">let</span> <span style="color: #96CBFE;">mut</span> data = y.lock<span style="color: #aebed8;">()</span>.unwrap<span style="color: #aebed8;">()</span>;
-            data<span style="color: #aebed8;">[</span>i<span style="color: #aebed8;">]</span> += <span style="color: #99CC99;">1</span>;
-        <span style="color: #97b098;">}</span><span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
-
-    <span style="color: #CFCB90;">thread</span>::sleep_ms<span style="color: #93a8c6;">(</span><span style="color: #99CC99;">1000</span><span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+    thread::sleep_ms(1000);
+}
+</pre></li>
 <li><p>
 channels
 </p>
-<div class="org-src-container">
+<pre class="example">
+use std::sync::mpsc::{Sender, Receiver};
+use std::sync::mpsc;
+use std::thread;
 
-<pre class="src src-rust"><span style="color: #96CBFE;">use</span> <span style="color: #CFCB90;">std</span>::<span style="color: #CFCB90;">sync</span>::<span style="color: #CFCB90;">mpsc</span>::<span style="color: #8c8c8c;">{</span><span style="color: #CFCB90;">Sender</span>, <span style="color: #CFCB90;">Receiver</span><span style="color: #8c8c8c;">}</span>;
-<span style="color: #96CBFE;">use</span> <span style="color: #CFCB90;">std</span>::<span style="color: #CFCB90;">sync</span>::mpsc;
-<span style="color: #96CBFE;">use</span> <span style="color: #CFCB90;">std</span>::thread;
+static NTHREADS: i32 = 3;
 
-<span style="color: #96CBFE;">static</span> <span style="color: #c5c8c6; background-color: #1d1f21;">NTHREADS</span>: <span style="color: #CFCB90;">i32</span> = <span style="color: #99CC99;">3</span>;
+fn main() {
+    let (tx, rx): (Sender&lt;i32&gt;, Receiver&lt;i32&gt;) = mpsc::channel();
 
-<span style="color: #96CBFE;">fn</span> <span style="color: #FFD2A7;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #96CBFE;">let</span> <span style="color: #93a8c6;">(</span>tx, rx<span style="color: #93a8c6;">)</span>: <span style="color: #93a8c6;">(</span><span style="color: #CFCB90;">Sender</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #CFCB90;">i32</span><span style="color: #b0b1a3;">&gt;</span>, <span style="color: #CFCB90;">Receiver</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #CFCB90;">i32</span><span style="color: #b0b1a3;">&gt;</span><span style="color: #93a8c6;">)</span> = <span style="color: #CFCB90;">mpsc</span>::channel<span style="color: #93a8c6;">()</span>;
+    for id in 0..NTHREADS {
+        let thread_tx = tx.clone();
 
-    <span style="color: #96CBFE;">for</span> id <span style="color: #96CBFE;">in</span> <span style="color: #99CC99;">0</span>..<span style="color: #CFCB90;">NTHREADS</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #96CBFE;">let</span> thread_tx = tx.clone<span style="color: #b0b1a3;">()</span>;
+        thread::spawn(move || {
+            thread_tx.send(id).unwrap();
+            println!("thread {} finished", id);
+        });
+    }
 
-        <span style="color: #CFCB90;">thread</span>::spawn<span style="color: #b0b1a3;">(</span><span style="color: #96CBFE;">move</span> || <span style="color: #97b098;">{</span>
-            thread_tx.send<span style="color: #aebed8;">(</span>id<span style="color: #aebed8;">)</span>.unwrap<span style="color: #aebed8;">()</span>;
-            <span style="color: #8996A8;">println!</span><span style="color: #aebed8;">(</span><span style="color: #8AE234;">"thread {} finished"</span>, id<span style="color: #aebed8;">)</span>;
-        <span style="color: #97b098;">}</span><span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
+    let mut data = Vec::with_capacity(NTHREADS as usize);
+    for _ in 0..NTHREADS {
+        data.push(rx.recv());
+    }
 
-    <span style="color: #96CBFE;">let</span> <span style="color: #96CBFE;">mut</span> data = <span style="color: #CFCB90;">Vec</span>::with_capacity<span style="color: #93a8c6;">(</span><span style="color: #CFCB90;">NTHREADS</span> <span style="color: #96CBFE;">as</span> <span style="color: #CFCB90;">usize</span><span style="color: #93a8c6;">)</span>;
-    <span style="color: #96CBFE;">for</span> _ <span style="color: #96CBFE;">in</span> <span style="color: #99CC99;">0</span>..<span style="color: #CFCB90;">NTHREADS</span> <span style="color: #93a8c6;">{</span>
-        data.push<span style="color: #b0b1a3;">(</span>rx.recv<span style="color: #97b098;">()</span><span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
-
-    <span style="color: #8996A8;">println!</span><span style="color: #93a8c6;">(</span><span style="color: #8AE234;">"{:?}"</span>, data<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
-</pre>
-</div></li>
+    println!("{:?}", data);
+}
+</pre></li>
 </ul>
 </div>
 </div>
@@ -892,7 +840,7 @@ channels
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Ivan Bodrov</p>
-<p class="date">Created: 2016-01-21 Чт. 14:42</p>
+<p class="date">Created: 2016-01-21 Чт. 14:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
