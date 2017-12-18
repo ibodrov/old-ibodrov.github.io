@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Concord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="ui main container">
+    <div class="ui icon tiny attached menu visible">
+        <div class="item">
+            <img class="ui mini image" src="g64.png">
+        </div>
+
+        <div class="ui category search item">
+            <div class="ui transparent icon input">
+                <input class="prompt" placeholder="Search..." type="text">
+                <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+
+        <div class="ui right dropdown item">
+            <i class="user icon"></i> Ivan Bodrov - Vendor
+            <i class="dropdown icon"></i>
+
+            <div class="menu">
+                <a class="item">Profile</a>
+                <a class="item">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui vertical segment">
+        <div class="ui big breadcrumb">
+            <a href="org.html" class="section">SDE</a>
+            <div class="divider"> /</div>
+            <div class="active section">concord-examples</div>
+        </div>
+    </div>
+
+    <div class="ui tabular menu">
+        <div class="active item">
+            <i class="tasks icon"></i>
+            Processes
+        </div>
+        <div class="item">
+            <i class="code icon"></i>
+            <a href="repositories.html">Repositories</a>
+        </div>
+        <div class="item">
+            <i class="setting icon"></i>
+            <a href="settings.html">Settings</a>
+        </div>
+    </div>
+
+    <div class="ui top attached borderless menu">
+        <div class="item">
+            <div class="ui search selection dropdown">
+                <input name="initiator" type="hidden">
+                <i class="dropdown icon"></i>
+                <div class="default text">Initiator</div>
+                <div class="menu">
+                    <div class="item" data-value="admin">admin</div>
+                    <div class="item" data-value="vn03g8w">vn03g8w</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ui search selection dropdown">
+                <input name="status" type="hidden">
+                <i class="dropdown icon"></i>
+                <div class="default text">Status</div>
+                <div class="menu">
+                    <div class="item" data-value="RUNNING">
+                        <i class="notched circle icon"></i>Running
+                    </div>
+                    <div class="item" data-value="FINISHED">
+                        <i class="green check icon"></i>Running
+                    </div>
+                    <div class="item" data-value="FAILED">
+                        <i class="red removed icon"></i>Failed
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right item">
+            <button class="ui icon button">
+                <i class="search icon"></i>
+            </button>
+        </div>
+    </div>
+    <table class="ui celled bottom attached table">
+        <thead>
+        <tr>
+            <th class="collapsing">Status</th>
+            <th>Instance ID</th>
+            <th class="collapsing">Initiator</th>
+            <th>Created</th>
+            <th>Updated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="center aligned"><i class="notched circle loading icon"></i></td>
+            <td><a href="#">50ba79d0-e419-11e7-96d2-b3da50a79c52</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="green check icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="red remove icon"></i></td>
+            <td><a href="#">50ba79d0-e419-11e7-96d2-b3da50a79c52</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        <tr>
+            <td class="center aligned"><i class="check green icon"></i></td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+            <td>admin</td>
+            <td>2017-12-17 22:35:48</td>
+            <td>2017-12-17 22:30:48</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5">
+                <div class="ui right floated pagination menu">
+                    <a class="icon item">
+                        <i class="left disabled chevron icon"></i>
+                    </a>
+                    <a class="icon item">
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+    $(".ui.dropdown").dropdown();
+</script>
+
+</body>
+</html>

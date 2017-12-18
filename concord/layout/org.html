@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Concord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="ui main container">
+    <div class="ui icon tiny attached menu visible">
+        <div class="item">
+            <img class="ui mini image" src="g64.png">
+        </div>
+
+        <div class="ui category search item">
+            <div class="ui transparent icon input">
+                <input class="prompt" placeholder="Search..." type="text">
+                <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+
+        <div class="ui right dropdown item">
+            <i class="user icon"></i> Ivan Bodrov - Vendor
+            <i class="dropdown icon"></i>
+
+            <div class="menu">
+                <a class="item">Profile</a>
+                <a class="item">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui vertical segment">
+        <div class="ui big breadcrumb">
+            <a class="section">Organizations</a>
+            <div class="divider"> /</div>
+            <div class="active section">SDE</div>
+        </div>
+    </div>
+
+    <div class="ui tabular menu">
+        <div class="active item">
+            <i class="sitemap icon"></i>
+            Projects
+        </div>
+        <div class="item">
+            <i class="lock icon"></i>
+            <a>Secrets</a>
+        </div>
+        <div class="item">
+            <i class="users icon"></i>
+            <a>Teams</a>
+        </div>
+    </div>
+
+    <div class="ui secondary menu">
+        <div class="ui category search item">
+            <div class="ui transparent icon input">
+                <input class="prompt" placeholder="Search..." type="text">
+                <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+        <div class="right item">
+            <button class="ui labeled green icon button">
+                <i class="plus icon"></i>
+                New project
+            </button>
+        </div>
+    </div>
+
+    <div class="ui large relaxed divided list">
+        <div class="item">
+            <i class="large middle aligned unlock icon"></i>
+            <div class="content">
+                <a href="processes.html" class="header">concord-examples</a>
+                <div class="description">Collection of example flows.</div>
+            </div>
+        </div>
+        <div class="item">
+            <i class="large middle aligned unlock icon"></i>
+            <div class="content">
+                <div class="header">concord-cd-example</div>
+                <div class="description">Full CI/CD pipeline example.</div>
+            </div>
+        </div>
+        <div class="item">
+            <i class="large middle aligned unlock icon"></i>
+            <div class="content">
+                <div class="header">concord-oneops-replace</div>
+                <div class="description">Example of using OneOps compute replacement events.</div>
+            </div>
+        </div>
+        <div class="item">
+            <i class="large middle aligned unlock icon"></i>
+            <div class="content">
+                <div class="header">concord-experimental</div>
+                <div class="description">Experimental flows, not made public yet.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".ui.dropdown").dropdown();
+</script>
+
+</body>
+</html>
