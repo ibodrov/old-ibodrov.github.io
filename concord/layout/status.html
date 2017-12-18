@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Concord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="ui main container">
+    <div class="ui icon tiny attached menu visible">
+        <div class="item">
+            <img class="ui mini image" src="g64.png">
+        </div>
+
+        <div class="ui category search item">
+            <div class="ui transparent icon input">
+                <input class="prompt" placeholder="Search..." type="text">
+                <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+
+        <div class="ui right dropdown item">
+            <i class="user icon"></i> Ivan Bodrov - Vendor
+            <i class="dropdown icon"></i>
+
+            <div class="menu">
+                <a class="item">Profile</a>
+                <a class="item">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui vertical segment">
+        <div class="ui big breadcrumb">
+            <a href="org.html" class="section">SDE</a>
+            <div class="divider"> /</div>
+            <a class="active section" href="processes.html">concord-examples</a>
+        </div>
+    </div>
+
+    <div class="ui tabular menu">
+        <div class="active item">
+            <i class="hourglass empty icon"></i>
+            Status
+        </div>
+        <div class="item">
+            <i class="book icon"></i>
+            <a href="logs.html">Logs</a>
+        </div>
+        <div class="item">
+            <i class="sticky note icon"></i>
+            <a href="#">Attachments</a>
+        </div>
+    </div>
+
+    <table class="ui collapsing definition table">
+        <tr>
+            <td>Parent process</td>
+            <td><a href="#">18921c16-e419-11e7-9793-af8f2c9157ea</a></td>
+        </tr>
+        <tr>
+            <td>Kind</td>
+            <td>Default</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+                <div class="ui grey label">
+                    <i class="checkmark icon"></i>
+                    RUNNING
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Initiator</td>
+            <td>vn03g8w</td>
+        </tr>
+        <tr>
+            <td>Started at</td>
+            <td>2017-12-17 22:35:40</td>
+        </tr>
+        <tr>
+            <td>Last update</td>
+            <td>2017-12-17 22:35:48</td>
+        </tr>
+        <tr>
+            <td>Tags</td>
+            <td><a href="#">test</a>, <a href="#">ui</a></td>
+        </tr>
+    </table>
+
+    <button class="ui blue button">
+        <i class="download icon"></i>
+        State
+    </button>
+
+    <button class="ui red button">
+        <i class="delete icon"></i>
+        Cancel
+    </button>
+
+    <div class="ui divider"></div>
+
+    <h4 class="ui header">Required actions</h4>
+    <table class="ui table">
+        <thead>
+        <tr>
+            <th>Action</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a href="#">info</a>
+            </td>
+            <td>Form</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(".ui.dropdown").dropdown();
+</script>
+
+</body>
+</html>

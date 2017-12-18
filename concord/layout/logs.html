@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Concord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="ui main container">
+    <div class="ui icon tiny attached menu visible">
+        <div class="item">
+            <img class="ui mini image" src="g64.png">
+        </div>
+
+        <div class="ui category search item">
+            <div class="ui transparent icon input">
+                <input class="prompt" placeholder="Search..." type="text">
+                <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+
+        <div class="ui right dropdown item">
+            <i class="user icon"></i> Ivan Bodrov - Vendor
+            <i class="dropdown icon"></i>
+
+            <div class="menu">
+                <a class="item">Profile</a>
+                <a class="item">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui vertical segment">
+        <div class="ui big breadcrumb">
+            <a href="org.html" class="section">SDE</a>
+            <div class="divider"> /</div>
+            <a class="active section" href="processes.html">concord-examples</a>
+        </div>
+    </div>
+
+    <div class="ui tabular menu">
+        <div class="item">
+            <i class="hourglass empty icon"></i>
+            <a href="status.html">Status</a>
+        </div>
+        <div class="active item">
+            <i class="book icon"></i>
+            Logs
+        </div>
+        <div class="item">
+            <i class="sticky note icon"></i>
+            <a href="#">Attachments</a>
+        </div>
+    </div>
+
+    <div class="ui secondary menu">
+        <div class="item">
+            <button class="ui icon button">
+                <i class="expand icon"></i>
+            </button>
+        </div>
+        <div class="right item">
+            <button class="ui button">
+                Auto-scroll ON
+            </button>
+        </div>
+    </div>
+
+    <div class="concord-log-view">
+17:43:26.179 [INFO ] Copying the repository's data: RepositoryEntry{id=197085c0-e39a-11e7-9d51-fa163ee88118, name='GLS_RMT_CLASSIC_DEV', url='git@gecgithub01.walmart.com:Logistics/RMT.git', branch='development', commitId='null', path='null', secret='GLS_RMT_CLASSIC'}
+17:43:26.879 [INFO ] Using the default entry point
+17:43:27.063 [INFO ] Process status: RUNNING
+Agent ID: 0aeeb933-2f76-4fd6-a15a-023eabf7f26f
+17:42:25.607 [INFO ] com.walmartlabs.concord.runner.Main - run -&gt; working directory: /tmp/prefork5801353086845048098/payload
+17:43:27.160 [INFO ] c.w.concord.runner.ProcessHeartbeat - start ['48a2b939-dd6f-4c6b-ad3e-baf0a8afb956'] -&gt; running every 10000ms
+[PKG_Version1, PKG_Version2, PKG_Version3]
+[Java_Test_Stage, Java_Test_Deploy, Java_Prod_Stage, Java_Prod_Deploy, development_branch]
+Process finished with: 0
+17:43:28.614 [INFO ] Process status: SUSPENDED
+17:43:34.095 [INFO ] Process status: RUNNING
+Agent ID: 0aeeb933-2f76-4fd6-a15a-023eabf7f26f
+17:43:28.817 [INFO ] com.walmartlabs.concord.runner.Main - run -&gt; working directory: /tmp/prefork153538070782927799/payload
+17:43:34.138 [INFO ] c.w.concord.runner.ProcessHeartbeat - start ['48a2b939-dd6f-4c6b-ad3e-baf0a8afb956'] -&gt; running every 10000ms
+17:43:34.575 [INFO ] c.w.concord.plugins.log.LoggingTask - RMT LOG&gt;&gt; Framing INI file using 1234 US
+17:43:34.690 [INFO ] c.w.concord.plugins.log.LoggingTask - RMT LOG&gt;&gt; JAVA TEST STAGE
+17:43:34.696 [INFO ] c.w.concord.plugins.log.LoggingTask - RMT LOG&gt;&gt; Ansible playbook going to be used in this project is playbook/Java_Test_Stage.yml
+17:43:34.701 [INFO ] c.w.concord.plugins.log.LoggingTask - RMT LOG&gt;&gt; User Selected - Workflow name Java_Test_Stage
+17:43:34.711 [INFO ] c.w.concord.plugins.log.LoggingTask - RMT LOG&gt;&gt; User Selected - Package Version PKG_Version1
+17:43:34.719 [INFO ] c.w.concord.plugins.log.LoggingTask - RMT LOG&gt;&gt; User Selected - Environment dev
+17:43:34.737 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - Using a playbook: playbook/Java_Test_Stage.yml
+17:43:34.740 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - Using a dynamic inventory script: /tmp/prefork153538070782927799/payload/playbook/GLS_Inventory/TEST_Profiles/1234US.ini
+17:43:35.352 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: Ansible event recording started...
+17:43:35.352 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:35.352 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: PLAY [DC_Java] *****************************************************************
+17:43:35.374 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:35.374 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [Gathering Facts] *********************************************************
+17:43:36.437 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32875s1007d0a.s32875.us.wal-mart.com]
+17:43:36.466 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:36.466 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [file] ********************************************************************
+17:43:36.770 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32875s1007d0a.s32875.us.wal-mart.com]
+17:43:36.783 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:36.783 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [JavaTask] ****************************************************************
+17:43:37.506 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32875s1007d0a.s32875.us.wal-mart.com]
+17:43:37.514 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:37.515 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [show output] *************************************************************
+17:43:37.535 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32875s1007d0a.s32875.us.wal-mart.com] =&gt; {
+17:43:37.535 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:     "out3.stdout_lines": "VARIABLE IS NOT DEFINED!"
+17:43:37.535 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: }
+17:43:37.543 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:37.543 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [RunJavaMaster] ***********************************************************
+17:43:37.888 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: changed: [us32875s1007d0a.s32875.us.wal-mart.com]
+17:43:37.894 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:37.894 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [show output] *************************************************************
+17:43:37.918 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32875s1007d0a.s32875.us.wal-mart.com] =&gt; {
+17:43:37.918 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:     "JavaStageop.stdout_lines": []
+17:43:37.918 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: }
+17:43:37.927 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:37.927 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [PrintErr] ****************************************************************
+17:43:38.138 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: changed: [us32875s1007d0a.s32875.us.wal-mart.com]
+17:43:38.146 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:38.146 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [debug] *******************************************************************
+17:43:38.168 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32875s1007d0a.s32875.us.wal-mart.com] =&gt; {
+17:43:38.168 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:     "msg": []
+17:43:38.168 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: }
+17:43:38.178 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:38.179 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: PLAY [BE] **********************************************************************
+17:43:38.182 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:38.182 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [Gathering Facts] *********************************************************
+17:43:39.167 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32820s1007d0a.s32820.us.wal-mart.com]
+17:43:39.175 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:39.175 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [BETASK] ******************************************************************
+17:43:39.409 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: changed: [us32820s1007d0a.s32820.us.wal-mart.com]
+17:43:39.416 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:39.416 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: TASK [show output] *************************************************************
+17:43:39.439 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: ok: [us32820s1007d0a.s32820.us.wal-mart.com] =&gt; {
+17:43:39.440 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:     "out2.stdout_lines": []
+17:43:39.440 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: }
+17:43:39.444 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+17:43:39.444 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: PLAY RECAP *********************************************************************
+17:43:39.444 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: us32820s1007d0a.s32820.us.wal-mart.com : ok=3    changed=1    unreachable=0    failed=0
+17:43:39.444 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE: us32875s1007d0a.s32875.us.wal-mart.com : ok=8    changed=2    unreachable=0    failed=0
+17:43:39.444 [INFO ] c.w.c.p.ansible.RunPlaybookTask2 - ANSIBLE:
+Process finished with: 0
+17:43:39.949 [INFO ] Process status: FINISHED
+    </div>
+</div>
+
+<script>
+    $(".ui.dropdown").dropdown();
+</script>
+
+</body>
+</html>

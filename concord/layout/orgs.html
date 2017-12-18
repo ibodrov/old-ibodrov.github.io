@@ -37,24 +37,7 @@
 
     <div class="ui vertical segment">
         <div class="ui big breadcrumb">
-            <a class="section" href="orgs.html">Organizations</a>
-            <div class="divider"> /</div>
-            <div class="active section">SDE</div>
-        </div>
-    </div>
-
-    <div class="ui tabular menu">
-        <div class="active item">
-            <i class="sitemap icon"></i>
-            Projects
-        </div>
-        <div class="item">
-            <i class="lock icon"></i>
-            <a>Secrets</a>
-        </div>
-        <div class="item">
-            <i class="users icon"></i>
-            <a>Teams</a>
+            <div class="active section">Organizations</div>
         </div>
     </div>
 
@@ -66,41 +49,47 @@
             </div>
             <div class="results"></div>
         </div>
-        <div class="right item">
-            <button class="ui labeled green icon button">
-                <i class="plus icon"></i>
-                New project
-            </button>
+
+        <div class="ui toggle checkbox right item">
+            <input id="only-user-orgs" name="public" type="checkbox" checked="">
+            <label for="only-user-orgs">Show only user's organizations</label>
         </div>
     </div>
 
     <div class="ui large relaxed divided list">
         <div class="item">
-            <i class="large middle aligned unlock icon"></i>
+            <img class="ui tiny image" src="sde.png">
             <div class="content">
-                <a href="processes.html" class="header">concord-examples</a>
-                <div class="description">Collection of example flows.</div>
+                <a href="org.html" class="header">SDE</a>
+                <div class="description">Software Delivery and Enablement</div>
             </div>
         </div>
         <div class="item">
-            <i class="large middle aligned unlock icon"></i>
+            <img class="ui tiny image" src="wireframe.png">
             <div class="content">
-                <div class="header">concord-cd-example</div>
-                <div class="description">Full CI/CD pipeline example.</div>
+                <div class="header">OtherOrg</div>
+                <div class="description">Example org.</div>
             </div>
         </div>
         <div class="item">
-            <i class="large middle aligned unlock icon"></i>
+            <img class="ui tiny image" src="wireframe.png">
             <div class="content">
-                <div class="header">concord-oneops-replace</div>
-                <div class="description">Example of using OneOps compute replacement events.</div>
+                <div class="header">OtherOrg</div>
+                <div class="description">Example org.</div>
             </div>
         </div>
         <div class="item">
-            <i class="large middle aligned red lock icon"></i>
+            <img class="ui tiny image" src="wireframe.png">
             <div class="content">
-                <div class="header">concord-experimental</div>
-                <div class="description">Experimental flows, not made public yet.</div>
+                <div class="header">OtherOrg</div>
+                <div class="description">Example org.</div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="ui tiny image" src="wireframe.png">
+            <div class="content">
+                <div class="header">OtherOrg</div>
+                <div class="description">Example org.</div>
             </div>
         </div>
     </div>
